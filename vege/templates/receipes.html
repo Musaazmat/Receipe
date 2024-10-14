@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block start%}
+
+
+<div class = "container mt-5">
+
+    <form class = "col-6 mx-auto card p-3 shadow-lg" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h4>Add Receipe </h4>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Receipe Name</label>
+          <input name="receipe_name" required type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Receipe Description</label>
+          <textarea name="receipe_description" required class= "form-control"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Receipe Image</label>
+          <input name="receipe_image"required type="file" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Add Receipe</button>
+      </form>
+
+
+      <div class= "mt-5">
+        <div class= "mx-auto col-6">
+            <form>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Search Receipe</label>
+            <input name="search" type="text" class="form-control">
+            </div>
+            <button type ="submit" class="btn btn-primary">Search</button>
+        </form>
+        </div>
+      </div>
+
+
+
+
+      <table class="table  mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Receipe Name</th>
+            <th scope="col">Receipe Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% if receipes %}
+                {% for receipe in receipes %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ receipe.receipe_name }}</td>
+                    <td>{{ receipe.receipe_description }}</td>
+                    <td>
+                        <img src="/media/{{ receipe.receipe_image }}" style="height: 90px;  objectFit: contain;">
+                    </td>
+                    <td>
+                        <a href="/delete-receipe/{{ receipe.id }}/" class="btn btn-danger">Delete</a><hr>
+                        <a href="/update-receipe/{{ receipe.id }}/" class="btn btn-success text-white">Update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center py-2">
+                        <h5>No Receipe Found</h5>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+        
+        </table>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+# python cache files
+__pycache__/
+
+# ignore sqlite database
+db.sqlite3
+
+# ignore media uploads
+public/media/receipe
+
+# static files
+saticfiles/
+
+# Vs code settings
+.vscode/

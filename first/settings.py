@@ -23,9 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8uy144xs(a2#+q2^)*t#qkd$bq7_@3n#8gp)5506$xm3tw$(m1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://my-receipe.onrender.com',
+    'localhost',
+    '127.0.0.1'
+    
+]
 
 
 # Application definition

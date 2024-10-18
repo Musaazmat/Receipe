@@ -13,6 +13,20 @@
     </style>
 </head>
 <body>
+
+    {% if request.user.is_authenticated %}
+    
+    <nav class="navbar dark bg-primary shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand">Navbar</a>
+        <form class="d-flex" role="search">
+            <a href="/logout/" class="btn btn-light" type="submit">logout</a>
+        </form>
+        </div>
+    </nav>
+    {% endif %}
+
+    
     {% block start%}
 
 

@@ -1,14 +1,33 @@
-# python cache files
+# Python cache files
 __pycache__/
+*.pyc
 
-# ignore sqlite database
+# SQLite database
 db.sqlite3
 
-# ignore media uploads
-public/media/receipe
+# Environment folder
+env/
+*.env
 
-# static files
-saticfiles/
-
-# Vs code settings
+# VS Code settings
 .vscode/
+
+# Static files (if they are generated during build or should not be versioned)
+public/
+
+# Django static and media files (if you are using them)
+staticfiles/
+media/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node modules (if applicable)
+node_modules/
+
+# Ignore coverage reports
+coverage/
+*.cover
+*.log
+*.tmp

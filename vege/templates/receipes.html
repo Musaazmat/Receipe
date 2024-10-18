@@ -2,6 +2,11 @@
 {% block start%}
 
 
+<hr>
+user: {{request.user}}<br>
+Firstname {{request.user.first_name}} <br>
+lastname {{request.user.last_name}}
+
 <div class = "container mt-5">
 
     <form class = "col-6 mx-auto card p-3 shadow-lg" method = "post" enctype="multipart/form-data">
@@ -38,6 +43,11 @@
 
 
 
+
+      <div>
+        <a href="/delete_all/" class="btn btn-danger">Delete all</a>
+        <h6>Total receipe : {{total_receipes}}</h6>
+      </div>
 
       <table class="table  mt-3">
         <thead>
